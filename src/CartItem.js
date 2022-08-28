@@ -13,7 +13,20 @@ class CartItem extends React.Component {
     }
 
     increaseQuantity = () => {  //arrow fxn will automaticall bind for the same.
-        console.log(this.state);
+        // this.state.qty += 1  // to render qty use setState
+        // console.log(this.state);
+
+        // setState form 1
+        // this.setState({
+        //     qty: this.state.qty + 1 //To change title we don't need previous state so use 1st form of setState
+        // });
+
+        // setState form 2
+        this.setState((prevState) => {
+            return {
+                qty: prevState.qty + 1  // If I require previous state for change then use 2nd form of setState
+            }
+        })
     }
     render() {
         const {price, title, qty } = this.state
@@ -24,8 +37,8 @@ class CartItem extends React.Component {
                 </div>
                 <div className='right-block'>
                     <div style={{fontSize: 25}}>{title}</div>
-                    <div style={{color: '#777'}}>{price}</div>
-                    <div style={{color: '#777'}}>{qty}</div>
+                    <div style={{color: '#777'}}>Rs. {price}</div>
+                    <div style={{color: '#777'}}>Qty: {qty}</div>
                     <div className='cart-item-actions'>
                         <img 
                             className='action-icons' 
