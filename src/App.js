@@ -85,6 +85,10 @@ class App extends React.Component {
       cartTotal = cartTotal + products.qty * products.price
     })
     return cartTotal;
+    // products.forEach((product)=>{                     // we can use forEach as well
+    //   cartTotal = cartTotal + product.qty * product.price
+    // })
+    // return cartTotal;
   }
   render(){
     const {products} = this.state;
