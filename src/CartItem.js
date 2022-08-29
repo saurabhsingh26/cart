@@ -1,16 +1,16 @@
 import React from 'react';
 
 class CartItem extends React.Component {
-    constructor() {
-        super();
-        this.state = {  // "this" refers to CartItem Object and create state to that object.
-            price: 999,
-            title: 'Phone',
-            qty: 1,
-            img: ''
-        }
-        // this.increaseQuantity = this.increaseQuantity.bind(this) //It will bind the value of "this" to instance of CartItem.
-    }
+    // constructor() {
+    //     super();
+    //     this.state = {  // "this" refers to CartItem Object and create state to that object.
+    //         price: 999,
+    //         title: 'Phone',
+    //         qty: 1,
+    //         img: ''
+    //     }
+    //     // this.increaseQuantity = this.increaseQuantity.bind(this) //It will bind the value of "this" to instance of CartItem.
+    // }
 
     increaseQuantity = () => {  //arrow fxn will automaticall bind for the same.
         // this.state.qty += 1  // to render qty use setState
@@ -44,7 +44,9 @@ class CartItem extends React.Component {
         
     }
     render() {
-        const {price, title, qty } = this.state
+        // console.log(this.props.product);
+        const {price, title, qty } = this.props.product
+
         return (
             <div className='cart-item'>
                 <div className='left-block'>
