@@ -32,20 +32,30 @@ class Cart extends React.Component {
         }
         
     }
+    handleIncreaseQuantity = (product) => {
+        // console.log('Heyy please inc the qty of ', product);
+        const {products} = this.state;
+        const index = products.indexOf(product);
+        products[index].qty += 1
+        // console.log(products);
+
+        this.setState({
+            products
+        })
+        
+      }
     render() {
         // const arr = [1,2,3,4,5]
         const { products } = this.state;
         return (
             <div className='cart'>
-                {/* { arr.map((item) =>{  // we can iterate over arr
-                    return item + 5
-                }) } */}
-                
-                {products.map((product) => {
+
+                {products.map((product) => {  // product is a local variable
                     return(
                         <CartItem 
                         product = {product} 
                         key = {product.id} 
+                        onIncreaseQuantity = {this.handleIncreaseQuantity}
                         />
                     )
                     

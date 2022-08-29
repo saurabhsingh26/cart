@@ -1,48 +1,7 @@
 import React from 'react';
 
 class CartItem extends React.Component {
-    // constructor() {
-    //     super();
-    //     this.state = {  // "this" refers to CartItem Object and create state to that object.
-    //         price: 999,
-    //         title: 'Phone',
-    //         qty: 1,
-    //         img: ''
-    //     }
-    //     // this.increaseQuantity = this.increaseQuantity.bind(this) //It will bind the value of "this" to instance of CartItem.
-    // }
-
-    increaseQuantity = () => {  //arrow fxn will automaticall bind for the same.
-        // this.state.qty += 1  // to render qty use setState
-        // console.log(this.state);
-
-        // setState form 1
-        // this.setState({
-        //     qty: this.state.qty + 1 //To change title we don't need previous state so use 1st form of setState
-        // });
-
-        // setState form 2
-        this.setState((prevState) => {
-            return {
-                qty: prevState.qty + 1  // If I require previous state for change then use 2nd form of setState
-            }
-        })
-    }
-    decreaseQuantity = () => {
-        // const qty = this.state.qty;
-        const {qty} = this.state;
-        //console.log(qty);
-        if(qty === 0){
-            return; 
-        }
-        this.setState((prevState)=>{
-            return {
-                qty: prevState.qty - 1
-            }
-            
-        })
-        
-    }
+    
     render() {
         // console.log(this.props.product);
         const {price, title, qty } = this.props.product
@@ -61,7 +20,7 @@ class CartItem extends React.Component {
                             className='action-icons' 
                             alt="increase" 
                             src="https://cdn-icons-png.flaticon.com/512/7168/7168754.png"
-                            onClick={this.increaseQuantity}
+                            onClick={() => this.props.onIncreaseQuantity(this.props.product)}
                         />
                         <img 
                             className='action-icons' 
