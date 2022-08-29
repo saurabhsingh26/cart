@@ -26,7 +26,7 @@ class CartItem extends React.Component {
                             className='action-icons' 
                             alt="decrease" 
                             src="https://cdn-icons-png.flaticon.com/512/6461/6461294.png" 
-                            onClick={this.decreaseQuantity}
+                            onClick={() => this.props.onDecreaseQuantity(this.props.product)}
                         />
                         <img 
                             className='action-icons' 
