@@ -42,7 +42,7 @@ class App extends React.Component {
       .collection('products')
       // .where('price','<=',999)  // We can apply filter
       // .where('qty','>=',2)
-      .orderBy('price','desc')       // We can sort using price in decending order
+      // .orderBy('price','desc')       // We can sort using price in decending order
       .onSnapshot((snapshot) => {
         // console.log(snapshot);
 
